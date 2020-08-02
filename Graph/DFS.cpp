@@ -36,6 +36,8 @@ void DFS(int **edges, int n)
             printDFS(edges,n,i,visited);
         }
     }
+    
+    delete[] visited;
 }
 
 int main()
@@ -71,4 +73,9 @@ int main()
     // Checkpoint 4: Call DFS function
     DFS(edges,V);
     
+    for(int i=0;i<n;i++)
+    {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
