@@ -66,10 +66,11 @@ Explanation :
 
 ```
 
-3) Some times pair will be needed, and har jagah data type ki jagah pair class lagana padega uske lie easy solution is to create type defintion
+3) Some times pair will be needed, and har jagah data type ki jagah pair class lagana padega uske lie easy solution is to create type defintion and then use har jagah use ppi.
+
 
 ```
 typedef pair<int, pair<int, int>> ppi ;
 ```
 
-ab har jagah use ppi.
+  
