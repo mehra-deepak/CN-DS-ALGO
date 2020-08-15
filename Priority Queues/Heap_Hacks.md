@@ -73,4 +73,4 @@ Explanation :
 typedef pair<int, pair<int, int>> ppi ;
 ```
 
-  
+* is pair class k pair.first mai automatically sorting hoti hai(heap work hota hai) and pair.second vaha kyuki reference k lie hota hai to uspe nahi. 
