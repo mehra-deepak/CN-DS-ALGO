@@ -73,4 +73,5 @@ Explanation :
 typedef pair<int, pair<int, int>> ppi ;
 ```
 
-* is pair class k pair.first mai automatically sorting hoti hai(heap work hota hai) and pair.second vaha kyuki reference k lie hota hai to uspe nahi. 
+* is pair class k pair.first mai automatically sorting hoti hai(heap work hota hai) and pair.second vaha kyuki reference k lie hota hai to uspe nahi, and agar ek bar ```pair<int,int>``` ban gae to priority queue mai usko use karne k lie jaha jaha ```int``` use kia hota hai uski jagah mai ```pair<int,int>``` use karo. 
+  
