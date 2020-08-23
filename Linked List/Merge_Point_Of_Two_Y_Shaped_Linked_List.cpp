@@ -66,7 +66,7 @@ Node *findMergeNode(Node*A, Node* B)
     
     for(int i=0;i<d;i++)
     {
-        B = B-next;
+        B = B->next;
     }
     
     while(A !=NULL && B!=NULL)
