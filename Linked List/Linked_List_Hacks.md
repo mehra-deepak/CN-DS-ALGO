@@ -80,3 +80,18 @@ int main()
     
 }
 ```
+
+* One Important Question worth doing is the one jisme hum mid-point nikalte hai using fast and slow pointers. 
+
+```
+usme 
+fast = fast ->next ->next;
+slow = slow -> next;
+
+loop runs for two conditions :
+
+while(p!=NULL && p->next !=NULL)
+
+1st for Even Length Linked List.
+2nd for Odd Legth of Linked List.
+```
