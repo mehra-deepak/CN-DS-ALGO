@@ -7,13 +7,20 @@ Directly replacing the Node, this one is more efficient.
 
 2) Atleast 2 elements hona chiye.
 
+1->2->3->4->null
+
+delete 3
+
+1->2->4->4->null
+
+1->2->4->null 
 
 */
 void deleteNode(Node *node)
 {
     Node *temp = node->next;
     
-    *node = *(node->next);
+    *node = *(node->next);   // next node mai jo kuch hai sab node mai dal do.
     
     delete temp;
 }
