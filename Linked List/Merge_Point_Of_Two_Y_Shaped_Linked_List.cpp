@@ -56,6 +56,8 @@ Node *findMergeNode(Node*A, Node* B)
     int n=  length(B);
     int d = n - m;
     
+    
+    // swapping kyuki hame ye nahi pta A ya B mai se bada kon hai and hum b ko assume kare hai vo bda hoga 
     if(m > n)
     {
         Node *temp = A;
