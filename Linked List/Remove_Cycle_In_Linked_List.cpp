@@ -1,10 +1,11 @@
 Node* removeTheLoop(Node *head)
-{
-     //Your code here
-     struct Node *temp1,*temp2;
+
+     
+     // Loop remove karne k lie loop ka hona bhi bahut zaruri hai, to ye code loop ko detect karne k lie hai.
+     Node *temp1,*temp2;
      temp1=head;
      temp2=head;
-     while(temp1&&temp2&&temp2->next)
+     while(temp1 && temp2 && temp2->next)
      {
          temp1=temp1->next;
          temp2=temp2->next->next;
