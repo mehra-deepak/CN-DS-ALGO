@@ -1,4 +1,7 @@
+#include<iostream>
 #include<string.h>
+using namespace std;
+
 int helper(char input[], int last)
 {
     if(last==0)
@@ -18,4 +21,14 @@ int stringToNumber(char input[])
     int ans = helper(input, len-1);
 
     return ans;
+}
+int main()
+{
+    char str[100];
+
+    cin>>str;
+
+    int ans = stringToNumber(str);
+
+    cout<<ans+1; // adding one to confirm its converted to integer.
 }
