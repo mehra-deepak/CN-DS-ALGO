@@ -40,24 +40,36 @@ TreeNode<int>* takeInputLevelWise()
     return root;
 }
 
-void printTree(TreeNode<int>* root)
+void printTreeLevelWise(TreeNode<int>* root)
 {
-    cout<<root->data<<":";
 
-    for(int i=0;i<root->children.size();i++)
+    queue<TreeNode<int>*> pendingNodes;
+    pendingNodes.push(root);
+
+    while(!pendingNodes.empty())
     {
-        cout<<root->children[i]->data<<",";
+        TreeNode<int>* front = pendingNodes.front();
+
+        pendingNodes.pop();
+
+        cout<<front->data<<":";
+
+        for(int i=0;i<front->children.size();i++)
+        {
+            cout<<front->children[i]->data<<",";
+
+            pendingNodes.push(front->children[i]);
+        }
+        cout<<endl;
     }
-    cout<<endl;
-    for(int i=0;i<root->children.size();i++)
-    {
-        printTree(root->children[i]);
-    }
+
 }
 int main()
 {
     TreeNode<int>* root = takeInputLevelWise();
 
-    printTree(root);
+    cout<<endl;
+
+    printTreeLevelWise(root);
 
 }
