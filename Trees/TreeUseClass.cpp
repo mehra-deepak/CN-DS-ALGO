@@ -63,6 +63,20 @@ int sumOfNodes(TreeNode<int>* root)
 
     return sum;
 }
+int maximumNode(TreeNode<int>* root)
+{
+
+    int ans = root->data;
+
+    for(int i=0;i<root->children.size();i++)
+    {
+        int smallans = maximumNode(root->children[i]);
+        ans = max(smallans,ans);
+    }
+
+    return ans;
+
+}
 void printTreeLevelWise(TreeNode<int>* root)
 {
 
@@ -106,6 +120,12 @@ int main()
     int sum = sumOfNodes(root);
 
     cout<<"sum"<<sum;
+
+    cout<<endl;
+
+    int maxx = maximumNode(root);
+
+    cout<<maxx;
 
 
 }
