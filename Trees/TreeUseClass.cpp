@@ -36,47 +36,12 @@ TreeNode<int>* takeInputLevelWise()
             pendingNodes.push(newNode);
         }
     }
+    cout<<endl;
 
     return root;
 }
 
-int numOfNodes(TreeNode<int>* root)
-{
-    int ans =1;  // root k corresponding
 
-    for(int i=0;i<root->children.size();i++)
-    {
-        ans += numOfNodes(root->children[i]);
-    }
-
-    return ans;
-}
-
-int sumOfNodes(TreeNode<int>* root)
-{
-    int sum = root->data;  // root k corresponding
-
-    for(int i=0;i<root->children.size();i++)
-    {
-        sum +=sumOfNodes(root->children[i]);
-    }
-
-    return sum;
-}
-int maximumNode(TreeNode<int>* root)
-{
-
-    int ans = root->data;
-
-    for(int i=0;i<root->children.size();i++)
-    {
-        int smallans = maximumNode(root->children[i]);
-        ans = max(smallans,ans);
-    }
-
-    return ans;
-
-}
 void printTreeLevelWise(TreeNode<int>* root)
 {
 
@@ -101,31 +66,117 @@ void printTreeLevelWise(TreeNode<int>* root)
     }
 
 }
+
+int numofNodes(TreeNode<int>* root)
+{
+    if(root==NULL)
+    {
+        return 0;
+    }
+    int count=0;
+
+    for(int i=0;i<root->children.size();i++)
+    {
+        count+= numofNodes(root->children[i]);
+    }
+
+    count+=1;
+
+    return count;
+}
+
+int sumOfNodes(TreeNode<int>* root)
+{
+
+    if(root==NULL)
+    {
+        return 0;
+    }
+
+    int sum = 0;
+
+    for(int i=0;i<root->children.size();i++)
+    {
+        sum+= sumOfNodes(root->children[i]);
+    }
+    sum+=root->data;
+
+    return sum;
+
+
+
+}
+
+int nodesGreaterThanX(TreeNode<int> *root, int x)
+{
+    if(root==NULL)
+    {
+        return 0;
+    }
+    int count=0;
+
+    if(root->data > x)
+    {
+        count++;
+    }
+
+    for(int i=0;i<root->children.size();i++)
+    {
+        count+= nodesGreaterThanX(root->children[i],x);
+
+    }
+
+    return count;
+}
+bool containsX(TreeNode<int>* root, int x)
+{
+    if(root==NULL)
+    {
+        return false;
+    }
+
+    if(root->data == x)
+    {
+        return true;
+    }
+
+    for(int i=0;i<root->children.size();i++)
+    {
+        bool ans = containsX(root->children[i],x);
+        if(ans==true)
+        {
+            return true;
+        }
+
+    }
+    return false;
+}
 int main()
 {
-    TreeNode<int>* root = takeInputLevelWise();
 
-    cout<<endl;
+    TreeNode<int>* root = takeInputLevelWise();
 
     printTreeLevelWise(root);
 
-    cout<<endl;
+    int numNodes = numofNodes(root);
 
-    int count = numOfNodes(root);
+    cout<<numNodes;
+
+    int sumNodes = sumOfNodes(root);
+
+    cout<<endl;
+    cout<<sumNodes;
+
+    int x;
+    cin>>x;
+
+
+    bool ans = containsX(root,x);
+
+    cout<<ans;
+
+    int count = nodesGreaterThanX(root,x);
 
     cout<<count;
-
-    cout<<endl;
-
-    int sum = sumOfNodes(root);
-
-    cout<<"sum"<<sum;
-
-    cout<<endl;
-
-    int maxx = maximumNode(root);
-
-    cout<<maxx;
-
 
 }
