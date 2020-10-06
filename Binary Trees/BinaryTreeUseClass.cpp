@@ -137,10 +137,9 @@ int numOfNodes(BinaryTreeNode<int>* root)
     int smallRight = numOfNodes(root->right);
 
     return 1+ smallLeft + smallRight;
-
-
-
 }
+
+
 int main()
 {
     BinaryTreeNode<int>* root = takeInputLevelWise();
