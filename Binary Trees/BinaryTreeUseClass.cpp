@@ -1,6 +1,7 @@
 #include<iostream>
 #include<queue>
 #include "BinaryTreeClass.cpp"
+#include<vector>
 using namespace std;
 
 void printTree(BinaryTreeNode<int>* root)
@@ -139,6 +140,41 @@ int numOfNodes(BinaryTreeNode<int>* root)
     return 1+ smallLeft + smallRight;
 }
 
+vector<int> getRootToNodePath(BinaryTreeNode<int>* root, int data)
+{
+    vector<int> vect;
+
+
+    if(root== NULL)
+    {
+        return vect;
+    }
+
+    if(root->data == data)
+    {
+        vect.push_back(data);
+    }
+
+    vector<int> leftTree = getRootToNodePath(root->left, data);
+    if(leftTree.size()!=0)
+    {
+        leftTree.push_back(root->data);
+        return leftTree;
+    }
+
+    vector<int> rightTree = getRootToNodePath(root->right, data);
+    if(rightTree.size()!=0)
+    {
+        rightTree.push_back(root->data);
+        return rightTree;
+    }
+    else
+    {
+        return vect;
+    }
+
+
+}
 
 int main()
 {
@@ -146,9 +182,13 @@ int main()
 
     printLevelWise(root);
 
+    vector<int> path = getRootToNodePath(root, 8);
+
     cout<<endl;
 
-    cout<<numOfNodes(root);
+    for(int i=0;i<path.size();i++)
+    {
+        cout<<path[i]<<endl;
 
-    delete(root);
+    }
 }
