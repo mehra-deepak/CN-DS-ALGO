@@ -1,34 +1,30 @@
 TreeNode<int>* maxSumNode(TreeNode<int> *root)
 {
 
-    int sum=0;
+    int sumMax=0;
 
     TreeNode<int>* max = root;
     for(int i=0;i<root->children.size();i++)
     {
-        sum+=root->children[i]->data;
+        sumMax+=root->children[i]->data;
     }
 
-    sum+=root->data;
+    sumMax+=root->data;
 
-
-    // recursion vala part
     for(int i=0;i<root->children.size();i++)
     {
          int smallsum=0;
         TreeNode<int>* smax= maxSumNode(root->children[i]);
-
-        // child nodes k sum
-        for(int j=0;j<smax->children.size();j++)
+        for(int j=0;j<smax->children.size();j++)  // u need to find sum for ans of recusion
         {
              smallsum += smax->children[j]->data;
         }
         smallsum += smax->data;
 
-        if(smallsum>sum)
+        if(smallsum>sumMax)
         {
             max = smax;
-            sum = smallsum;
+            sumMax = smallsum;
         }
     }
     return max;
