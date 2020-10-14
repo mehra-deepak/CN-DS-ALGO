@@ -34,3 +34,27 @@ bool isNodePresent(BinaryTreeNode<int>* root, int x)
     }
 
 }
+
+
+// Second Solution
+
+
+bool isNodePresent(BinaryTreeNode<int>* root, int x) 
+{
+    
+    if(root==NULL)
+    {
+        return false;
+    }
+    if(root->data==x)
+    {
+        return true;
+    }
+
+    bool smallLeft  =isNodePresent(root->left,x);
+    bool smallRight = isNodePresent(root->right,x);
+    
+    return smallLeft || smallRight;
+
+}
+

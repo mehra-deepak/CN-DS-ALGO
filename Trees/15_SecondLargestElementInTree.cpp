@@ -1,18 +1,20 @@
 void secondLargest(TreeNode<int> * root, TreeNode<int> **first , TreeNode<int> **second)
 {
 
-    if(*first==NULL){
+    if(*first==NULL)
+    {
         *first=root;
     }
 
-    else if((*first)->data<root->data){
+    else if((*first)->data<root->data)
+    {
         *second=*first;
         *first=root;
     }
-    else if(((*first)->data)>(root->data)&&((*second)->data)<(root->data)){
+    else if((*second==NULL)|| ((*first)->data)>(root->data)&&((*second)->data)<(root->data))
+    {
         *second=root;
     }
-
     for(int i=0;i<root->children.size();i++)
     {
         secondLargest(root->children[i],first,second);
