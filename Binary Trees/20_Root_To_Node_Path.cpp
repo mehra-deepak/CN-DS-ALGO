@@ -14,11 +14,13 @@ vector<int>* getRootToNodePath(BinaryTreeNode<int>* root, int data)
     }
 
     vector<int>* leftOutput = getRootToNodePath(root->left,data);
+
     if(leftOutput!=NULL)
     {
         leftOutput->push_back(root->data);
         return leftOutput;
     }
+
     vector<int>* rightOutput = getRootToNodePath(root->right,data);
     if(rightOutput!=NULL)
     {
